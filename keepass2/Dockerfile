@@ -2,6 +2,7 @@
 #	docker run  -it --rm \
 # 	-v /tmp/.X11-unix:/tmp/.X11-unix \
 #	-v $HOME/keepass:/home/keepass/keepass \
+#       -v $HOME/.config/KeePass/KeePass.config.xml:/home/keepass/.config/KeePass/KeePass.config.xml
 #	-e DISPLAY=unix$DISPLAY \
 #	--name keepass2 benoitg/keepass2
 #
