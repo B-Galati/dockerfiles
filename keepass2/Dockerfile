@@ -5,11 +5,6 @@
 #       -v $HOME/.config/KeePass/KeePass.config.xml:/home/keepass/.config/KeePass/KeePass.config.xml
 #	-e DISPLAY=unix$DISPLAY \
 #	--name keepass2 benoitg/keepass2
-#
-# POSSIBLE ISSUES:
-#	# 'Gtk: cannot open display: :0'
-#	Try to set 'DISPLAY=your_host_ip:0' or run 'xhost +' on your host.
-#	(see: http://stackoverflow.com/questions/28392949/running-chromium-inside-docker-gtk-cannot-open-display-0)
 FROM debian:latest
 MAINTAINER Benoit GALATI <benoit.galati@gmail.com>
 
