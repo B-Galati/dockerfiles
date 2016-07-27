@@ -13,7 +13,8 @@ RUN useradd -ms /bin/bash node \
 	&& chown -R node:node /home/node
 
 RUN export PATH="$PATH:$(npm config get prefix)/lib/node_modules/bin" \
-    && npm install -g angular-cli
+    && npm install -g angular-cli \
+    && npm install -g tslint typescript
 
 USER node
 
