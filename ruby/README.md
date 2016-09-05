@@ -2,7 +2,7 @@
 
 ```bash
 docker run  -it --rm \
-    -v $(pwd):/usr/src/app \
+    -v $(pwd):/usr/src/ \
     --name node-tools \
     -e DOCKER_UID \
     -e DOCKER_GID \
@@ -15,7 +15,7 @@ With docker-compose
 web:
     build: ./docker
     volumes:
-        - ./:/usr/src/app
+        - ./:/usr/src/
     ports:
         - 4000:4000
     environment:
