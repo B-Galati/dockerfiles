@@ -16,8 +16,11 @@ web:
     build: ./docker
     volumes:
         - ./:/usr/src/
+        - ./bundle/:/usr/local/bundle/
+    expose:
+        - "4000"
     ports:
-        - 4000:4000
+        - "4000:4000"
     environment:
         - DOCKER_UID
         - DOCKER_GID

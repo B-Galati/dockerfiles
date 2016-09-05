@@ -13,11 +13,13 @@ USER="root"
 
 if [[ ! -z "$DOCKER_UID" && ! -z "$DOCKER_GID" ]]; then
     USER="user"
-    useradd -ms /bin/bash -u $DOCKER_UID -o -c "$DOCKER_UID" -m $USER
-    chown -R user:user /home/$USER
-    export HOME=/home/$USER
-    echo "$USER:dev" | chpasswd
-    echo "User '$USER' created, UID : $DOCKER_UID, you can use it with 'gosu $USER <command>' (if not default user)"
+
+    if [[ ! $(id -u $USER 2>/dev/null) ]]; then
+        useradd -ms /bin/bash -u $DOCKER_UID -o -c "$DOCKER_UID" -m $USER
+        chown -R user:user -- /home/$USER
+        export HOME=/home/$USER
+        echo "$USER:dev" | chpasswd
+    fi
 fi
 
 # With supervisor, launch container as root and choose user you want by program
