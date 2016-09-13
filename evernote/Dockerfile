@@ -1,13 +1,3 @@
-# DESCRIPTION:
-#	Just to backup notes with windows app
-#
-# USAGE:
-#	docker run  -it \
-# 	-v /tmp/.X11-unix:/tmp/.X11-unix \
-#	-e DISPLAY=unix$DISPLAY \
-#   -v $HOME/evernote_backup:/root/backup \
-# 	--cpuset-cpus 0 \
-#	--name evernote benoitg/evernote
 FROM jess/wine
 MAINTAINER Benoit GALATI <benoit.galati@gmail.com>
 

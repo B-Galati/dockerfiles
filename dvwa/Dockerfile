@@ -1,13 +1,5 @@
 # Forked from https://github.com/citizen-stig/dockerdvwa
-# USAGE:
-#       docker run \
-#         --name dvwa \
-#         -p 80:80 \
-#         -p 3306:3306 \
-#         -e MYSQL_PASS="test" \
-#         -e DVWA_RECAPTCHA_PUBLIC_KEY="" \
-#         -e DVWA_RECAPTCHA_PRIVATE_KEY="" \
-#          benoitg/dvwa
+#
 
 FROM tutum/lamp:latest
 MAINTAINER Benoit Galati <benoit.galati@gmail.com>

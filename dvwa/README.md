@@ -9,13 +9,13 @@ Quick start
 
 ```bash
 docker run \
---name dvwa \
--p 80:80 \
--p 3306:3306 \
--e MYSQL_PASS="test" \
--e DVWA_RECAPTCHA_PUBLIC_KEY="" \
--e DVWA_RECAPTCHA_PRIVATE_KEY="" \
-benoitg/dvwa
+    --name dvwa \
+    -p 80:80 \
+    -p 3306:3306 \
+    -e MYSQL_PASS="test" \
+    -e DVWA_RECAPTCHA_PUBLIC_KEY="" \
+    -e DVWA_RECAPTCHA_PRIVATE_KEY="" \
+    benoitg/dvwa
 ```
 
 ![DVWA](https://www.randomstorm.com/images/tools/dvwa.png "DVWA")
