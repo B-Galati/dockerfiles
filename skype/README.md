@@ -11,5 +11,5 @@ docker run \
     --group-add audio \
     --group-add video \
     --name skype \
-    benoitg/skype" $@
+    benoitg/skype
 ```
