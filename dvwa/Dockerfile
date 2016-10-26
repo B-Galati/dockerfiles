@@ -4,7 +4,7 @@
 FROM tutum/lamp:latest
 MAINTAINER Benoit Galati <benoit.galati@gmail.com>
 
-ARG DEBIAN_FRONTEND noninteractive
+ARG DEBIAN_FRONTEND=noninteractive
 
 RUN \
   rm -fr /app/* && \

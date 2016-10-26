@@ -1,7 +1,7 @@
 FROM debian:latest
 MAINTAINER Benoit GALATI <benoit.galati@gmail.com>
 
-ARG DEBIAN_FRONTEND noninteractive
+ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y \
   keepass2
