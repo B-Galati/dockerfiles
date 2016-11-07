@@ -6,7 +6,7 @@ docker run  -it --rm \
     --name node-tools \
     -e DOCKER_UID \
     -e DOCKER_GID \
-    benoitg/ruby bunle install
+    benoitg/ruby bundle install
 ```
 
 With docker-compose
