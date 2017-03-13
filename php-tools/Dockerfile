@@ -2,6 +2,9 @@ FROM composer
 
 MAINTAINER Benoit GALATI <benoit.galati@gmail.com>
 
+RUN curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony \
+   && chmod +x /usr/local/bin/symfony
+
 RUN apk add --no-cache --virtual .build-deps \
     autoconf \
     file \
