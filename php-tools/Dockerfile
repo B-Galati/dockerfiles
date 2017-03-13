@@ -23,11 +23,13 @@ RUN git clone https://github.com/nikic/php-ast.git /tmp/php-ast \
     && make install \
     && docker-php-ext-enable ast \
     && cd \
-    && rm -rf /tmp/php-ast
+    && rm -rf /tmp/php-ast \
 
 RUN apk del .build-deps
 
 RUN composer global require ovr/phpsa etsy/phan
+
+RUN docker-php-ext-install pcntl
 
 env PATH /composer/vendor/bin:$PATH
 
