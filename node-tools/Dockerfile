@@ -1,11 +1,15 @@
-FROM node:6
+FROM node:7
 MAINTAINER Benoit Galati <benoit.galati@gmail.com>
 
-RUN export PATH="$PATH:$(npm config get prefix)/lib/node_modules/bin" \
-    && npm install -g angular-cli \
-    && npm install -g tslint typescript
+RUN chown -R node:root /usr/local/bin
 
 USER node
+
+RUN export PATH="$PATH:$(npm config get prefix)/lib/node_modules/bin" \
+    && yarn global add \
+        angular-cli \
+        tslint \
+        typescript
 
 ENV HOME /home/node
 
