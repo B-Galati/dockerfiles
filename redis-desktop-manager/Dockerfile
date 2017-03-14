@@ -5,7 +5,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y git lsb-release sudo software-properties-common
 
-RUN git clone --recursive https://github.com/uglide/RedisDesktopManager.git -b 0.8.8 rdm \
+RUN git clone --recursive https://github.com/uglide/RedisDesktopManager.git -b 0.8.0 rdm \
     && cd ./rdm/src \
     && ./configure \
     && . /opt/qt56/bin/qt56-env.sh \
