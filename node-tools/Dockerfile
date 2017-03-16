@@ -9,7 +9,8 @@ RUN export PATH="$PATH:$(npm config get prefix)/lib/node_modules/bin" \
     && yarn global add \
         angular-cli \
         tslint \
-        typescript
+        typescript \
+        goops
 
 ENV HOME /home/node
 
