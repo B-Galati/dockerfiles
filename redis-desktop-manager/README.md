@@ -8,7 +8,7 @@ docker run  -it --rm \
     -v $HOME/.rdm:/root/.rdm \
     -e DISPLAY \
     --device /dev/dri \
-    -e SSH_AUTH_SOCK
+    -e SSH_AUTH_SOCK \
     -v $SSH_AUTH_SOCK:$SSH_AUTH_SOCK \
     --name redis-desktop-manager \
     benoitg/redis-desktop-manager
