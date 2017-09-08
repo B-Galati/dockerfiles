@@ -10,6 +10,7 @@ RUN export PATH="$PATH:$(npm config get prefix)/lib/node_modules/bin" \
         angular-cli \
         tslint \
         typescript \
+        uglify-js \
         goops
 
 ENV HOME /home/node
