@@ -29,7 +29,7 @@ RUN apk del .build-deps
 
 RUN composer global require ovr/phpsa etsy/phan
 
-RUN docker-php-ext-install pcntl
+RUN docker-php-ext-install pcntl intl
 
 env PATH /composer/vendor/bin:$PATH
 
