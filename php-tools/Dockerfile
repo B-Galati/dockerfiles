@@ -13,7 +13,8 @@ RUN apk add --no-cache --virtual .build-deps \
     libc-dev \
     make \
     pkgconf \
-    re2c
+    re2c \
+    icu-dev
 
 RUN git clone https://github.com/nikic/php-ast.git /tmp/php-ast \
     && cd /tmp/php-ast \
@@ -27,7 +28,7 @@ RUN git clone https://github.com/nikic/php-ast.git /tmp/php-ast \
 
 RUN apk del .build-deps
 
-RUN composer global require ovr/phpsa etsy/phan
+RUN composer global require etsy/phan
 
 RUN docker-php-ext-install pcntl intl
 
