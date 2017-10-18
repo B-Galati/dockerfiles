@@ -1,6 +1,11 @@
-Some usefull node tools :
+Some useful node tools :
 
 - angular-cli
+- tslint
+- typescript
+- uglify-js
+- goops
+- browsersync
 
 # Usage
 

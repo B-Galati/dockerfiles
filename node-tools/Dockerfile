@@ -11,7 +11,8 @@ RUN export PATH="$PATH:$(npm config get prefix)/lib/node_modules/bin" \
         tslint \
         typescript \
         uglify-js \
-        goops
+        goops \
+        browser-sync
 
 ENV HOME /home/node
 
