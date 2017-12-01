@@ -1,9 +1,9 @@
 Some useful node tools :
 
-- angular-cli
 - tslint
 - typescript
-- uglify-js
+- uglifyjs
+- uglifycss
 - goops
 - browsersync
 

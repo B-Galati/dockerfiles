@@ -7,10 +7,10 @@ USER node
 
 RUN export PATH="$PATH:$(npm config get prefix)/lib/node_modules/bin" \
     && yarn global add \
-        angular-cli \
         tslint \
         typescript \
         uglify-js \
+        uglifycss \
         goops \
         browser-sync
 
