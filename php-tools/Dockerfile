@@ -2,9 +2,6 @@ FROM composer
 
 MAINTAINER Benoit GALATI <benoit.galati@gmail.com>
 
-RUN curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony \
-   && chmod +x /usr/local/bin/symfony
-
 RUN apk add --no-cache --virtual .build-deps \
     autoconf \
     file \
@@ -24,7 +21,7 @@ RUN git clone https://github.com/nikic/php-ast.git /tmp/php-ast \
     && make install \
     && docker-php-ext-enable ast \
     && cd \
-    && rm -rf /tmp/php-ast \
+    && rm -rf /tmp/php-ast
 
 RUN apk del .build-deps
 

@@ -1,4 +1,4 @@
-FROM node:7
+FROM node:8
 MAINTAINER Benoit Galati <benoit.galati@gmail.com>
 
 RUN chown -R node:root /usr/local/bin

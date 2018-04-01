@@ -11,11 +11,11 @@ set -e
 
 USER="root"
 
-if [[ ! -z "$DOCKER_UID" && ! -z "$DOCKER_GID" ]]; then
+if [[ ! -z "$HOST_UID" && ! -z "$HOST_GID" ]]; then
     USER="user"
 
     if [[ ! $(id -u $USER 2>/dev/null) ]]; then
-        useradd -ms /bin/bash -u $DOCKER_UID -o -c "$DOCKER_UID" -m $USER
+        useradd -ms /bin/bash -u $HOST_UID -o -c "$HOST_UID" -m $USER
         chown -R user:user -- /home/$USER
         export HOME=/home/$USER
         echo "$USER:dev" | chpasswd
