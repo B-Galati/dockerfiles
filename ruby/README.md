@@ -2,10 +2,8 @@
 
 ```bash
 docker run  -it --rm \
-    -v $(pwd):/usr/src/ \
-    --name node-tools \
-    -e HOST_UID \
-    -e HOST_GID \
+    -v $(pwd):/app \
+    --name ruby \
     benoitg/ruby bundle install
 ```
 
@@ -13,16 +11,13 @@ With docker-compose
 
 ```
 web:
-    build: ./docker
+    from: benoitg/ruby
     volumes:
-        - ./:/usr/src/
-        - ./bundle/:/usr/local/bundle/
+        - ./:/app
+        - ~/.bundle/cache:/home/ruby/.bundle/cache
     expose:
         - "4000"
     ports:
         - "4000:4000"
-    environment:
-        - HOST_UID
-        - HOST_GID
     command: bundle exec jekyll serve --drafts --watch --force_polling
 ```

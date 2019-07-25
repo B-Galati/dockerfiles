@@ -1,29 +1,20 @@
 #!/bin/bash
 
-# Add local user
-# Either use the UID if passed in at runtime, otherwise : root account
-#
-# Inspiration :
-#   - https://github.com/jderusse/docker-composer-hhvm/blob/configurable-user/runashost
-#   - https://denibertovic.com/posts/handling-permissions-with-docker-volumes/
-
 set -e
 
-USER="root"
+uid=$(stat -c %u /app)
+gid=$(stat -c %g /app)
 
-if [[ ! -z "$HOST_UID" && ! -z "$HOST_GID" ]]; then
-    USER="user"
-
-    if [[ ! $(id -u $USER 2>/dev/null) ]]; then
-        useradd -ms /bin/bash -u $HOST_UID -o -c "$HOST_UID" -m $USER
-        chown -R user:user -- /home/$USER
-        export HOME=/home/$USER
-        echo "$USER:dev" | chpasswd
-    fi
+if [[ ${uid} == 0 &&  ${gid} == 0 ]]; then
+    exec "$@"
 fi
 
-# With supervisor, launch container as root and choose user you want by program
-# otherwise you will get many permissions problems like /dev/stdout permission denied
-# or sshd which don't want to run at all
-echo "Starting with $USER"
-exec /usr/local/bin/gosu $USER "$@"
+if [[ "${uid}" != "$(id -u ruby)" ]]; then
+    usermod -u ${uid} ruby
+fi
+
+if [[ "${gid}" != "$(id -g ruby)" ]]; then
+    groupmod -g ${gid} ruby
+fi
+
+exec gosu ruby "$@"
