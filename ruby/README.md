@@ -11,7 +11,7 @@ With docker-compose
 
 ```
 web:
-    from: benoitg/ruby
+    image: benoitg/ruby
     volumes:
         - ./:/app
         - ~/.bundle/cache:/home/ruby/.bundle/cache
