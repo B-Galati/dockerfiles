@@ -17,4 +17,6 @@ if [[ "${gid}" != "$(id -g ruby)" ]]; then
     groupmod -g ${gid} ruby
 fi
 
+chown -R ruby:ruby /home/ruby /app
+
 exec gosu ruby "$@"

@@ -26,14 +26,16 @@ RUN wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/downloa
 
 RUN groupadd --gid 1000 ruby \
   && useradd --uid 1000 --gid ruby --shell /bin/bash --create-home ruby \
-  && mkdir /app \
-  && chown -R ruby:ruby /app /home/ruby
+  && mkdir -p /app /home/ruby/.cache/bundle \
+  && chown -R ruby:ruby /home/ruby /app
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
-ENV BUNDLE_APP_CONFIG="" \
-    GEM_HOME="/home/ruby/.gem" \
-    BUNDLE_PATH=""
+ENV GEM_HOME="/app/bundle" \
+    BUNDLE_PATH="/app/bundle" \
+    BUNDLE_BIN="/app/bundle/bin" \
+    BUNDLE_CACHE_PATH="/home/ruby/.cache/bundle" \
+    BUNDLE_SILENCE_ROOT_WARNING=""
 
 WORKDIR /app
 

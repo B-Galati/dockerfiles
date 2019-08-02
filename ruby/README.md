@@ -14,7 +14,7 @@ web:
     image: benoitg/ruby
     volumes:
         - ./:/app
-        - ~/.bundle/cache:/home/ruby/.bundle/cache
+        - ~/.cache/bundle:/home/ruby/.cache/bundle
     expose:
         - "4000"
     ports:
