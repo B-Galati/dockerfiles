@@ -31,6 +31,10 @@ RUN groupadd --gid 1000 ruby \
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
+ENV BUNDLE_APP_CONFIG="" \
+    GEM_HOME="/home/ruby/.gem" \
+    BUNDLE_PATH=""
+
 WORKDIR /app
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
