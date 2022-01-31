@@ -1,4 +1,4 @@
-FROM ruby:2
+FROM ruby:3
 MAINTAINER Benoit Galati <benoit.galati@gmail.com>
 
 ENV LANG="en_US.UTF-8" \
